@@ -1,0 +1,12 @@
+*{
+    font-size: 20px;
+}
+
+input::placeholder {
+    font-size: 20px;
+    padding: 10px;
+}
+textarea::placeholder {
+    font-size: 20px;
+    padding: 10px;
+}
