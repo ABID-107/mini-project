@@ -14,5 +14,14 @@ app.get('/', (req, res) => {
         res.render('index', { files: files });
     });
 });
-
+app.post('/create', (req, res) => {
+    fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`, req.body.details, (err) => {
+        res.redirect('/');
+    });
+});
+app.get('/delete/:filename', (req, res) => {
+    fs.unlink(`./files/${req.params.filename}`, (err) => {
+        res.redirect('/');
+    });
+});
 app.listen(3000)
