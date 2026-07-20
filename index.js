@@ -26,7 +26,15 @@ app.get('/delete/:filename', (req, res) => {
 });
 app.get('/file/:filename', (req, res) => {
     fs.readFile(`./files/${req.params.filename}`, 'utf-8', (err, data) => {
-        res.render('Show',{filename:req.params.filename,data:data});
+        res.render('Show', { filename: req.params.filename, data: data });
     });
+});
+app.get('/edit/:filename', (req, res) => {
+    res.render('Edit', { filename: req.params.filename });
+});
+app.post('/edit', (req, res) => {
+    fs.rename(`./files/${req.body.previous.trim()}`,`./files/${req.body.new.trim()}`, err => {
+        res.redirect("/")
+    })
 });
 app.listen(3000)

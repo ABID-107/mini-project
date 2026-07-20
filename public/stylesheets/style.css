@@ -3,7 +3,7 @@
 }
 
 input::placeholder {
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px;
 }
 textarea::placeholder {
