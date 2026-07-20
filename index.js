@@ -24,4 +24,9 @@ app.get('/delete/:filename', (req, res) => {
         res.redirect('/');
     });
 });
+app.get('/file/:filename', (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`, 'utf-8', (err, data) => {
+        res.render('Show',{filename:req.params.filename,data:data});
+    });
+});
 app.listen(3000)
