@@ -33,7 +33,7 @@ app.get('/edit/:filename', (req, res) => {
     res.render('Edit', { filename: req.params.filename });
 });
 app.post('/edit', (req, res) => {
-    fs.rename(`./files/${req.body.previous.trim()}`,`./files/${req.body.new.trim()}`, err => {
+    fs.rename(`./files/${req.body.previous}`,`./files/${req.body.new}`, err => {
         res.redirect("/")
     })
 });
